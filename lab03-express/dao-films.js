@@ -76,9 +76,10 @@ exports.listFilms = (filter) => {
         // Check if a filter is specified, otherwise just return the complete list.
         if (filter) {
           // WARNING: if implemented as if(filterValues[filter]) returns true also for filter = 'constructor' but then .filterFunction does not exists
-          if (filterValues.hasOwnProperty(filter)) 
+          if (filterValues.hasOwnProperty(filter)) {
             resolve(films.filter(filterValues[filter].filterFunction));
             return;  // Do not forget return here!
+          }
         }
         resolve(films);
       });
